@@ -1,0 +1,25 @@
+<%include header.ejs%>
+<div class="ui main text container segment">
+    <div class="ui huge header" style="padding:10px 0 ;"><center><%=blog.name%></center></div>
+    <div class="ui top attached ">
+
+        <div class="item">
+            <!-- <p class="description"><%= blog.body%></p> -->
+            <img class="ui centered rounded image" src="<%=blog.image%>" >
+            <div class="content" style="margin-top: 16px;">
+                <center>Published on - <span><b><%= blog.created.toDateString()%></b></span></center>
+            </div>
+            <div class="description" style="word-wrap:break-word;display:block;margin-top: 16px;">
+                <p><%- blog.body%></p>
+            </div>
+            <div style="margin-top:15px"><center>
+            <a class="ui orange basic button" href="/blogs/<%=blog._id%>/edit">Edit</a>
+            <form action="/blogs/<%=blog._id %>?_method=DELETE" method="POST" style="display: inline;">
+             <button class="ui red basic button">Delete</button>
+            </form></center>
+        </div>
+        </div>
+
+    </div>
+</div>
+<%include footer.ejs%>
